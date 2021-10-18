@@ -141,7 +141,7 @@ contract SupplyChainStorage is SupplyChainStorageOwnable {
         return (tmpData.name, tmpData.contactNo, userRole[_userAddress], tmpData.isActive);
     }
     
-     /*set Proccessor data*/
+     /*set Retailer data*/
     function setRetailerData(address batchNo,
                               string memory _registrationNo, string memory _shopName ,string memory _shopAddress) public onlyAuthCaller returns(bool){
         
@@ -156,7 +156,7 @@ contract SupplyChainStorage is SupplyChainStorageOwnable {
         return true;
     }
     
-     /*get Processor data*/
+     /*get Retailer data*/
     function getRetailerData( address batchNo) public onlyAuthCaller returns(string memory registrationNo ,
                                                                      string memory shopName, string memory shopAddress){
 
@@ -166,7 +166,7 @@ contract SupplyChainStorage is SupplyChainStorageOwnable {
                 tmpData.shopAddress);
     }
     
-     /*set Importer data*/
+     /*set Assembeler data*/
     function setAssemblerData(address batchNo,
                               string memory _expertiseArea, string memory _experience) public onlyAuthCaller returns(bool){
         
@@ -180,7 +180,7 @@ contract SupplyChainStorage is SupplyChainStorageOwnable {
         return true;
     }
     
-    /*get Importer data*/
+    /*get Assembeler data*/
     function getAssemblerData(address batchNo) public onlyAuthCaller returns(string memory expertiseArea,
                                                                             string memory experience){
         
@@ -190,7 +190,7 @@ contract SupplyChainStorage is SupplyChainStorageOwnable {
         
     }
 
-    /*set farm Inspector data*/
+    /*set product Inspector data*/
     function setProductInspectorData(address batchNo,
                                      string memory _typeOfProduct,
                                      string memory _serviceChecked) public onlyAuthCaller returns(bool){
@@ -205,7 +205,7 @@ contract SupplyChainStorage is SupplyChainStorageOwnable {
     }
     
     
-    /*get farm inspactor data*/
+    /*get product Inspector data*/
     function getProductInspectorData(address batchNo) public onlyAuthCaller returns ( string memory typeOfProduct, string memory serviceChecked){
         
         ProductInspector memory tmpData = batchProductInspector[batchNo];
@@ -213,7 +213,7 @@ contract SupplyChainStorage is SupplyChainStorageOwnable {
     }
     
 
-    /*set Harvester data*/
+    /*set product packer data*/
     function setPackerData(address batchNo,
                                string memory _typeOfProduct,
                                string memory _materialUsed) public onlyAuthCaller returns(bool){
@@ -227,7 +227,7 @@ contract SupplyChainStorage is SupplyChainStorageOwnable {
         return true;
     }
     
-    /*get farm Harvester data*/
+    /*get product packer data*/
     function getPackerData(address batchNo) public onlyAuthCaller returns( string memory _typeOfProduct,
                                                                                             string memory _materialUsed){
         
@@ -235,7 +235,7 @@ contract SupplyChainStorage is SupplyChainStorageOwnable {
         return (tmpData.typeOfProduct, tmpData.materialUsed);
     }
     
-    /*set Exporter data*/
+    /*set Deliverer data*/
     function setDeliverData(address batchNo,
                                string memory _typeOfProduct,
                                string memory _vehicalUsed
@@ -250,7 +250,7 @@ contract SupplyChainStorage is SupplyChainStorageOwnable {
         return true;
     }
     
-    /*get Exporter data*/
+    /*get Deliverer data*/
     function getDeliverData(address batchNo) public onlyAuthCaller returns(string memory _typeOfProduct,
                                string memory _vehicalUsed){
         
