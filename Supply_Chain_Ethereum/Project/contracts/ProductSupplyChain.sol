@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 import "./SupplyChainStorage.sol";
 import "./Ownable.sol";
 
-contract CoffeeSupplyChain is Ownable
+contract ProductSupplyChain is Ownable
 {
   
     event BuyingRawMaterial(address indexed user, address indexed batchNo);
