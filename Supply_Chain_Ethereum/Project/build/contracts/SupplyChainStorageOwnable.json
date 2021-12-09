@@ -2629,12 +2629,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xDF098338FCA18c7A7626dA4D0DF16bC80421F239",
-      "transactionHash": "0xbda6297c2f1ff0764c79fba9f870c714eeeb66fd562ba6b6e7d45118075743fe"
+      "address": "0x4085293309AAfa4EfBd82f2b8a8A3EE3AeD3286e",
+      "transactionHash": "0xbc7c4b733a801f5e54980061cee690ddb8cd6c9dcfd593615a437e886bd29554"
     }
   },
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-12-08T15:52:32.367Z",
+  "updatedAt": "2021-12-09T09:10:15.955Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "The Ownable contract has an owner address, and provides basic authorization control functions, this simplifies the implementation of \"user permissions\".",
