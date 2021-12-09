@@ -17,7 +17,58 @@ contract('SupplyChainStorage',(accounts)=>{
           name.should.equal(accounts[0]);
         })
    })
-   
+
+   describe('Checking Authorized Caller Function',()=>{
+      it('Set user should be called by new Authorized caller', async ()=>{
+         await this.SupplyChainStorage.authorizeCaller(accounts[1]);
+         await this.SupplyChainStorage.setUser(accounts[1],"Rahul Bhai","100","Bande uthana",true,{from:accounts[1]});
+      });
+
+      it('Set user should not be called by unAuthorized caller', async ()=>{
+         await this.SupplyChainStorage.setUser(accounts[1],"Rahul Bhai","100","Bande uthana",true,{from:accounts[1]});
+      });
+
+      it("Unauthorization of accounts[1] should be done and thus it should not able to call set user hence failing should be done",async ()=>{
+         await this.SupplyChainStorage.authorizeCaller(accounts[1]);
+         await this.SupplyChainStorage.deAuthorizeCaller(accounts[1]);
+         await this.SupplyChainStorage.setUser(accounts[1],"Rahul Bhai","100","Bande uthana",true,{from:accounts[1]});
+      })
+
+      it("Authorized Caller event should be emitted",async ()=>{
+         let result =  await this.SupplyChainStorage.authorizeCaller(accounts[1]);
+         truffleAssert.eventEmitted(result, 'AuthorizedCaller', (event) =>{
+               return event.caller == accounts[1];
+         });
+      })
+
+      it("DeAuthorized Caller event should be emitted",async ()=>{
+         let result =  await this.SupplyChainStorage.deAuthorizeCaller(accounts[0]);
+         truffleAssert.eventEmitted(result, 'DeAuthorizedCaller', (event) =>{
+               return event.caller == accounts[0];
+         });
+      })
+   });
+
+   describe('Checking Set User Function',()=>{
+      it('Set user should be called by new Authorized caller', async ()=>{
+         await this.SupplyChainStorage.authorizeCaller(accounts[1]);
+         await this.SupplyChainStorage.setUser(accounts[1],"Rahul Bhai","100","Bande uthana",true,{from:accounts[1]});
+      });
+
+      it('Set user should not be called by unAuthorized caller', async ()=>{
+         await this.SupplyChainStorage.setUser(accounts[1],"Rahul Bhai","100","Bande uthana",true,{from:accounts[1]});
+      });
+
+      it('Checking set user should return true', async ()=>{
+         const res = await this.SupplyChainStorage.setUser(accounts[1],"Rahul Bhai","100","Bande uthana",true)
+         res.should.equal(true);
+      });
+
+   });
+
+
+
+});
    /*
    describe('Changing Ownership',()=>{
         it('Owner should change',async ()=>{
@@ -79,4 +130,3 @@ contract('SupplyChainStorage',(accounts)=>{
 
    */
 
-});
