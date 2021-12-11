@@ -10,7 +10,7 @@ contract SupplyChainUser is Ownable
     event UserRoleUpdate(address indexed user, string role); 
     
      /* Storage Variables */    
-    SupplyChainStorage supplyChainStorage;
+    SupplyChainStorage public supplyChainStorage;
     
     constructor(address _supplyChainAddress) {
         supplyChainStorage = SupplyChainStorage(_supplyChainAddress);
